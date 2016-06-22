@@ -4,12 +4,19 @@ body {
 .center{
     text-align: center;
     margin: 10%;
+    margin-top: auto;
+    margin-bottom: auto;
 }
+.col-2{
+    float: left;
+    width: 40%;
 
+
+}
 
 .col-3{
     float: left;
-    width: 33.3333%;
+    width: 23.3333%;
 
 
 }
@@ -21,6 +28,14 @@ body {
     -moz-border-radius: 50%;
     -o-border-radius: 50%;
     border-radius: 50%;
+}
+#tongji {
+    position: relative;
+    left: -120%;
+}
+#tsinghua {
+    position: relative;
+    right: -120%;
 }
 
 
@@ -68,3 +83,15 @@ h1 {
     margin: 0 0 0.5em 0;
     margin-top: 0;
 }
+.university
+{
+    background-color: #008a75;
+    margin: 5%;
+}
+.project
+{
+    background-color: #FF9900;
+    margin: 5%;
+
+}
+
