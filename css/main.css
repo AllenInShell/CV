@@ -1,60 +1,54 @@
+/*预定义样式*/
 body {
-    color: #FFFFFF;
+    color: white;
+    font-family: 微软雅黑;
 }
-.center{
+a{	display: inline-block;
+    text-decoration: none;
+    border:none;
+    color: #fff;
+}
+a:after{
+    display: block;
+    content: '';
+    height: 2px;
+    background: #fff;
+    position: relative;
+    bottom: -2px;
+    left: 0;
+    transition: .5s;
+    transform: scaleX(0);
+}
+a:hover:after{
+    transform: scaleX(1);
+}
+
+.center {
     text-align: center;
-    margin: 10%;
-    margin-top: auto;
-    margin-bottom: auto;
+
+    margin: 10% 0;
 }
-.col-2{
+
+.col-1, .col-2{
+    display: inline-block;
+    border-radius: 10px;
+
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+.col-1{
+    display: block;
+    margin:2% 10%;
+    width: 80%;
+}
+
+.col-2 {
     float: left;
-    width: 40%;
-
-
-}
-
-.col-3{
-    float: left;
-    width: 23.3333%;
-
-
-}
-#avatar {
-    width: 200px;
     height: 200px;
-    border: 10px solid #aee2d9;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -o-border-radius: 50%;
-    border-radius: 50%;
-}
-#tongji {
-    position: relative;
-    left: -120%;
-}
-#tsinghua {
-    position: relative;
-    right: -120%;
+    width: 40%;
 }
 
 
-
-.section1 {
-    background-color: #BFDA00;
-}
-
-.section2 {
-    background-color: #2EBE21;
-}
-
-.section3 {
-    background-color: #2C3E50;
-}
-
-.section4 {
-    background-color: #FF9900;
-}
 
 #lang-panel {
     position: absolute;
@@ -62,13 +56,15 @@ body {
     top: 20px;
     border-radius: 5px;
     z-index: 100;
-    font-size: 0.8em
+    font-size: 0.8em;
+
 }
 
 #lang-panel .lang {
     display: inline-block;
     border-radius: 5px;
-    padding: 2px 8px
+    padding: 2px 8px;
+    text-decoration: none;
 }
 
 #lang-panel .lang.selected {
@@ -76,22 +72,124 @@ body {
     color: #008a75;
     cursor: default
 }
+
 h1 {
-    text-shadow: 1px 2px #22c3aa,2px 4px #aee2d9;
+
     text-align: center;
     font-size: 3.5em;
     margin: 0 0 0.5em 0;
     margin-top: 0;
 }
-.university
-{
-    background-color: #008a75;
-    margin: 5%;
-}
-.project
-{
-    background-color: #FF9900;
-    margin: 5%;
+
+/*所有屏幕通用样式*/
+
+/*第一屏样式*/
+
+#avatar {
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 8px solid rgba(255, 245, 245, 0.4);
+    opacity: 0;
+    transition: 1s ease;
+    position: relative;
+    perspective: 500px;
+    transform: rotateY(300deg);
+    transform: rotateX(300deg);
+    top: -900px;
 
 }
+
+.section1.active #avatar {
+    transform: rotateY(0deg);
+    transform: rotateX(0deg);
+    top: 0;
+    opacity: 1;
+}
+
+/*第二屏样式*/
+
+
+#tongji {
+    position: relative;
+    left: -120%;
+    transition: 1s ease;
+    margin-left: 9%;
+    margin-right:1%;
+}
+
+#tsinghua {
+    position: relative;
+    right: -120%;
+    transition: 1s ease;
+    margin-left: 1%;
+    margin-right:9%;
+}
+
+.section2.active #tongji {
+    left: 0;
+}
+
+.section2.active #tsinghua {
+    right: 0;
+}
+
+/*第三屏样式*/
+
+
+.section3 .skill-panel {
+    margin-bottom: 30px;
+    transition: 2s;
+    transform: scale(0);
+}
+
+.section3.active .skill-panel {
+    transform: scale(1);
+}
+
+.section3 .skill-panel span {
+    padding: 6px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.5);
+    margin: 0px 10px;
+    font-size: 200%;
+}
+
+/*第四屏样式*/
+
+
+
+.project {
+    height: 60%;
+
+    transition: 1s ease;
+}
+
+#java, #web, #python {
+    transform: rotateY(-180deg);
+}
+
+.section4.active #java, .section4.active #web, .section4.active #python {
+    transform: rotateY(0deg);
+}
+
+/*第五屏样式*/
+
+
+.section5 p {
+
+    position: relative;
+    opacity: 0;
+    top:-200px;
+    transition-property:opacity,top;
+    transition-duration:1s,1s;
+    transition-timing-function: ease,ease;
+}
+
+.section5.active p {
+    opacity: 1;
+    top:0px;
+}
+
 
